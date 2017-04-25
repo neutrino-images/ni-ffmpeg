@@ -368,6 +368,12 @@ static int amf_get_string(AVIOContext *ioc, char *buffer, int buffsize)
     return length;
 }
 
+int flv_amf_get_string(AVIOContext *ioc, char *buffer, int buffsize)
+{
+    return amf_get_string(ioc, buffer, buffsize);
+}
+
+
 static int parse_keyframes_index(AVFormatContext *s, AVIOContext *ioc, int64_t max_pos)
 {
     FLVContext *flv       = s->priv_data;
