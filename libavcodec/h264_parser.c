@@ -487,7 +487,7 @@ static inline int parse_nal_units(AVCodecParserContext *s,
     if (q264)
         return 0;
     /* didn't find a picture! */
-    av_log(h->avctx, AV_LOG_ERROR, "missing picture in access unit with size %d\n", buf_size);
+    //av_log(h->avctx, AV_LOG_ERROR, "missing picture in access unit with size %d\n", buf_size);
     return -1;
 }
 
