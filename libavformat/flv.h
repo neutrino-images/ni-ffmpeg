@@ -135,4 +135,6 @@ typedef enum {
     AMF_DATA_TYPE_UNSUPPORTED = 0x0d,
 } AMFDataType;
 
+int flv_amf_get_string(AVIOContext *ioc, char *buffer, int buffsize);
+
 #endif /* AVFORMAT_FLV_H */
