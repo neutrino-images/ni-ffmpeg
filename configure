@@ -284,6 +284,7 @@ External library support:
   --enable-x11grab         enable X11 grabbing (legacy) [no]
   --disable-xlib           disable xlib [autodetect]
   --disable-zlib           disable zlib [autodetect]
+  --disable-libroxml       disable XML parsing using the C library libroxml [autodetect]
 
 Toolchain options:
   --arch=ARCH              select architecture [$arch]
@@ -1395,6 +1396,7 @@ EXTERNAL_LIBRARY_LIST="
     libopus
     libpulse
     libquvi
+    libroxml
     librtmp
     libschroedinger
     libshine
@@ -2580,6 +2582,7 @@ dxa_demuxer_select="riffdec"
 eac3_demuxer_select="ac3_parser"
 f4v_muxer_select="mov_muxer"
 flac_demuxer_select="flac_parser"
+hds_demuxer_select="libroxml"
 hds_muxer_select="flv_muxer"
 hls_muxer_select="mpegts_muxer"
 image2_alias_pix_demuxer_select="image2_demuxer"
@@ -5192,6 +5195,8 @@ fi
 disabled  zlib || check_lib   zlib.h      zlibVersion -lz   || disable  zlib
 disabled bzlib || check_lib2 bzlib.h BZ2_bzlibVersion -lbz2 || disable bzlib
 disabled  lzma || check_lib2  lzma.h lzma_version_number -llzma || disable lzma
+
+disabled libroxml || check_lib roxml.h roxml_load_buf -lroxml || disable libroxml
 
 check_lib math.h sin -lm && LIBM="-lm"
 disabled crystalhd || check_lib libcrystalhd/libcrystalhd_if.h DtsCrystalHDVersion -lcrystalhd || disable crystalhd
