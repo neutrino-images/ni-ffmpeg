@@ -191,13 +191,6 @@ typedef struct AVIOContext {
     int writeout_count;
 
     /**
-     * Original buffer size
-     * used internally after probing and ensure seekback to reset the buffer size
-     * This field is internal to libavformat and access from outside is not allowed.
-     */
-    int orig_buffer_size;
-
-    /**
      * Threshold to favor readahead over seek.
      * This is current internal only, do not use from outside.
      */
