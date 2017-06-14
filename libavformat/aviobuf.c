@@ -79,7 +79,6 @@ int ffio_init_context(AVIOContext *s,
                   int64_t (*seek)(void *opaque, int64_t offset, int whence))
 {
     s->buffer      = buffer;
-    s->orig_buffer_size =
     s->buffer_size = buffer_size;
     s->buf_ptr     = buffer;
     s->opaque      = opaque;
@@ -468,16 +467,16 @@ static void fill_buffer(AVIOContext *s)
     }
 
     /* make buffer smaller in case it ended up large after probing */
-    if (s->read_packet && s->orig_buffer_size && s->buffer_size > s->orig_buffer_size) {
+    if (s->read_packet && s->buffer_size > max_buffer_size) {
         if (dst == s->buffer) {
-            int ret = ffio_set_buf_size(s, s->orig_buffer_size);
+            int ret = ffio_set_buf_size(s, max_buffer_size);
             if (ret < 0)
                 av_log(s, AV_LOG_WARNING, "Failed to decrease buffer size\n");
 
             s->checksum_ptr = dst = s->buffer;
         }
-        av_assert0(len >= s->orig_buffer_size);
-        len = s->orig_buffer_size;
+        av_assert0(len >= max_buffer_size);
+        len = max_buffer_size;
     }
 
     if (s->read_packet)
@@ -849,7 +848,6 @@ int ffio_set_buf_size(AVIOContext *s, int buf_size)
 
     av_free(s->buffer);
     s->buffer = buffer;
-    s->orig_buffer_size =
     s->buffer_size = buf_size;
     s->buf_ptr = buffer;
     url_resetbuf(s, s->write_flag ? AVIO_FLAG_WRITE : AVIO_FLAG_READ);
