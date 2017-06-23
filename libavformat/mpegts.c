@@ -917,10 +917,10 @@ static int new_pes_packet(PESContext *pes, AVPacket *pkt)
     pes->buffer = NULL;
     reset_pes_packet_state(pes);
 
-    sd = av_packet_new_side_data(pkt, AV_PKT_DATA_MPEGTS_STREAM_ID, 1);
+    /*sd = av_packet_new_side_data(pkt, AV_PKT_DATA_MPEGTS_STREAM_ID, 1);
     if (!sd)
         return AVERROR(ENOMEM);
-    *sd = pes->stream_id;
+    *sd = pes->stream_id;*/
 
     return 0;
 }
