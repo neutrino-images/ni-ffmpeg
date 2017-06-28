@@ -235,6 +235,11 @@ static int h264_mp4toannexb_filter(AVBSFContext *ctx, AVPacket *out)
         if (!s->new_idr && unit_type == 5 && (buf[1] & 0x80))
             s->new_idr = 1;
 
+	if (s->new_idr && unit_type == 6 && s->idr_sps_seen && s->idr_pps_seen){
+		    s->idr_sps_seen= 0;
+		    s->idr_pps_seen= 0;
+	}
+
         /* prepend only to the first type 5 NAL unit of an IDR picture, if no sps/pps are already present */
         if (s->new_idr && unit_type == 5 && !s->idr_sps_seen && !s->idr_pps_seen) {
             if ((ret=alloc_and_copy(out,
