@@ -15,8 +15,7 @@ ret: 0         st: 0 flags:0  ts: 0.364989
 ret: 0         st: 0 flags:1 dts: 0.364989 pts: 0.364989 pos:   8048 size:  1024
 ret: 0         st: 0 flags:1  ts:-0.740816
 ret: 0         st: 0 flags:1 dts: 0.000000 pts: 0.000000 pos:      0 size:  1024
-ret: 0         st:-1 flags:0  ts: 2.153336
-ret:-EOF
+ret:-1         st:-1 flags:0  ts: 2.153336
 ret: 0         st:-1 flags:1  ts: 1.047503
 ret: 0         st: 0 flags:1 dts: 1.047483 pts: 1.047483 pos:  23097 size:  1024
 ret: 0         st: 0 flags:0  ts:-0.058322
