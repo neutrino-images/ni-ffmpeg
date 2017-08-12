@@ -1003,6 +1003,8 @@ OBJS-$(CONFIG_TEXT2MOVSUB_BSF)            += movsub_bsf.o
 OBJS-$(CONFIG_VP9_RAW_REORDER_BSF)        += vp9_raw_reorder_bsf.o
 OBJS-$(CONFIG_VP9_SUPERFRAME_BSF)         += vp9_superframe_bsf.o
 OBJS-$(CONFIG_VP9_SUPERFRAME_SPLIT_BSF)   += vp9_superframe_split_bsf.o
+OBJS-$(CONFIG_VC1_ASFTORCV_BSF)           += vc1_asftorcv_bsf.o
+OBJS-$(CONFIG_VC1_ASFTOANNEXG_BSF)        += vc1_asftoannexg_bsf.o vc1.o \
 
 # thread libraries
 OBJS-$(HAVE_LIBC_MSVCRT)               += file_open.o

@@ -44,6 +44,8 @@ extern const AVBitStreamFilter ff_text2movsub_bsf;
 extern const AVBitStreamFilter ff_vp9_raw_reorder_bsf;
 extern const AVBitStreamFilter ff_vp9_superframe_bsf;
 extern const AVBitStreamFilter ff_vp9_superframe_split_bsf;
+extern const AVBitStreamFilter ff_vc1_asftoannexg_bsf;
+extern const AVBitStreamFilter ff_vc1_asftorcv_bsf;
 
 #include "libavcodec/bsf_list.c"
 
