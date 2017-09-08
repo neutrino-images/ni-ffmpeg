@@ -673,7 +673,7 @@ int avio_read(AVIOContext *s, unsigned char *buf, int size)
     }
     if (size1 == size) {
         if (s->error)      return s->error;
-        if (avio_feof(s))  return AVERROR_EOF;
+        if (s->eof_reached)  return AVERROR_EOF;
     }
     return size1 - size;
 }
